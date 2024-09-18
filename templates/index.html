@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Falling Animation</title>
+    <style>
+        body {
+            margin: 0;
+            padding: 0;
+            overflow: hidden;
+            background-color: #87CEEB; /* Sky blue background */
+        }
+        .falling {
+            position: absolute;
+            top: -100px;
+            left: 50%;
+            width: 50px;
+            height: 50px;
+            background-color: red;
+            border-radius: 50%; /* To represent a simple figure */
+            animation: fall 5s linear infinite;
+        }
+        @keyframes fall {
+            0% {
+                top: -100px;
+            }
+            100% {
+                top: 100vh; /* Falls off the screen */
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="falling"></div>
+
+    <script>
+        // Optional: Add interactivity or randomness in falling position or speed
+        const fallingElement = document.querySelector('.falling');
+        
+        // Function to randomize falling position
+        setInterval(() => {
+            const randomPosition = Math.random() * window.innerWidth;
+            fallingElement.style.left = `${randomPosition}px`;
+        }, 5000); // Change position every 5 seconds
+    </script>
+</body>
+</html>
